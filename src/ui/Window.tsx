@@ -1,5 +1,6 @@
 import { useEffect, useRef, type ReactNode } from 'react'
 import { useWindowManager } from '../wm/WindowManager'
+import { TASKBAR_HEIGHT } from '../wm/windowReducer'
 
 const isMobile = () =>
   typeof window.matchMedia === 'function' && window.matchMedia('(max-width: 700px)').matches
@@ -33,7 +34,12 @@ export default function Window({
       tabIndex={-1}
       className={`window${focused ? ' is-focused' : ''}`}
       hidden={win.minimized}
-      style={{ left: win.x, top: win.y, zIndex: win.z }}
+      style={{
+        left: win.x,
+        top: win.y,
+        zIndex: win.z,
+        maxHeight: Math.max(120, window.innerHeight - TASKBAR_HEIGHT - win.y - 8),
+      }}
       onPointerDown={() => dispatch({ type: 'focus', id })}
       onKeyDown={(e) => {
         if (e.key === 'Escape') {

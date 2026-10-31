@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useWindowManager } from '../wm/WindowManager'
 import StartMenu from './StartMenu'
 import type { IconProps } from './Icon'
@@ -16,6 +16,24 @@ export default function Taskbar({
   const { state, dispatch, focusedId } = useWindowManager()
   const [menuOpen, setMenuOpen] = useState(false)
   const [time, setTime] = useState(hhmm)
+  const startRef = useRef<HTMLButtonElement>(null)
+
+  const closeMenu = (returnFocus: boolean) => {
+    setMenuOpen(false)
+    if (returnFocus) startRef.current?.focus()
+  }
+
+  // close on any pointer press outside the menu and the Start button
+  useEffect(() => {
+    if (!menuOpen) return
+    const onDown = (e: PointerEvent) => {
+      const t = e.target as HTMLElement | null
+      if (t?.closest('.start-menu, .start-btn')) return
+      setMenuOpen(false)
+    }
+    document.addEventListener('pointerdown', onDown)
+    return () => document.removeEventListener('pointerdown', onDown)
+  }, [menuOpen])
 
   useEffect(() => {
     const t = setInterval(() => setTime(hhmm()), 30_000)
@@ -24,10 +42,11 @@ export default function Taskbar({
 
   return (
     <>
-      {menuOpen && <StartMenu icons={icons} onClose={() => setMenuOpen(false)} />}
+      {menuOpen && <StartMenu icons={icons} onClose={() => closeMenu(true)} />}
       <div className="taskbar" role="toolbar" aria-label="Taskbar">
         <button
           type="button"
+          ref={startRef}
           className="start-btn"
           aria-haspopup="menu"
           aria-expanded={menuOpen}

@@ -180,7 +180,9 @@ button { font-family: inherit; font-size: inherit; color: inherit; }
 @media (max-width: 700px) {
   .window {
     position: fixed; left: 0 !important; top: 0 !important; width: 100vw;
-    height: calc(100vh - var(--taskbar-h)); max-height: none;
+    height: calc(100vh - var(--taskbar-h));
+    height: calc(100dvh - var(--taskbar-h));
+    max-height: none !important;
   }
   .title-bar { touch-action: auto; }
   .icon { width: 72px; }
