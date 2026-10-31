@@ -1,5 +1,6 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { icons, isValidId, resolve } from './apps/registry'
+import BootScreen, { shouldBoot } from './ui/BootScreen'
 import Desktop from './ui/Desktop'
 import { useWindowManager, WindowManager } from './wm/WindowManager'
 
@@ -18,6 +19,11 @@ function AutoWelcome() {
 }
 
 export default function App() {
+  const [booting, setBooting] = useState(shouldBoot)
+
+  // Desktop mounts only after boot so deep links and Welcome apply to a visible desktop.
+  if (booting) return <BootScreen onDone={() => setBooting(false)} />
+
   return (
     <WindowManager isValidId={isValidId}>
       <Desktop icons={icons} resolve={resolve} />
