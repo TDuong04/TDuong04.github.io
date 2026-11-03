@@ -5,7 +5,7 @@ Owner: Huynh Thai Duong (GitHub: TDuong04)
 
 ## Intent
 
-A personal portfolio that feels like a classic Windows 95 desktop. A visitor (recruiter, engineer, collaborator) lands on a teal desktop, opens icons into draggable windows, and learns who Duong is: an AI, embedded and software engineer. Retro style is the personality; the content must still be quick to find. Source of truth for content: `README.md` in the `TDuong04/TDuong04` profile repo (current, curated) and the CV (`main.tex`, not public).
+A personal portfolio that feels like a classic Windows 95 desktop. A visitor (recruiter, engineer, collaborator) lands on a teal desktop, opens icons into draggable windows, and learns who Duong is: a software engineer with work across backend, AI and systems. Retro style is the personality; the content must still be quick to find. Source of truth for content: `README.md` in the `TDuong04/TDuong04` profile repo (current, curated) and the CV (`main.tex`, not public).
 
 ## Goals
 
@@ -18,7 +18,7 @@ A personal portfolio that feels like a classic Windows 95 desktop. A visitor (re
 ## Non-goals
 
 - No backend, CMS, login, analytics tracking or database.
-- No data-engineering positioning (the owner is AI, embedded and software; Spark/Iceberg/lakehouse work stays out).
+- No data-engineering positioning (Spark/Iceberg/lakehouse work stays out).
 - No sound.
 - No full Windows emulation (no file system, real apps, or working Minesweeper in v1).
 
@@ -41,7 +41,7 @@ A personal portfolio that feels like a classic Windows 95 desktop. A visitor (re
 Icons on the left of the desktop:
 
 1. **My Projects** (folder window). Each project is a sub-item that opens a detail window with description, tech tags, and links. Order: Vital Agent, PlantOS + The Garden Wars, Bosch CodeRace CAN safety system, Fish Detection on Jetson Nano, Scootr, DEVision Job Manager, RentMate, Travista, Guess Your Paddy, Clock Watch NUC140, Pyman.
-2. **Experience**: Bosch Vietnam (Embedded Software Engineer, Oct 2026 - present); OUCRU capstone (Capstone Collaborator / Full-Stack Developer, Apr - Sep 2026); NAVER Vietnam (Software Engineering Intern, Mar - Sep 2026); RMIT Neo Culture Tech Club (Technology Manager, Jun 2025 - Feb 2026). Tuturuuu is intentionally omitted.
+2. **Experience**: OUCRU capstone (Capstone Collaborator / Full-Stack Developer, Apr - Sep 2026); NAVER Vietnam (Software Engineering Intern, Mar - Sep 2026); RMIT Neo Culture Tech Club (Technology Manager, Jun 2025 - Feb 2026). Tuturuuu is intentionally omitted.
 3. **Skills**: grouped as Languages and backend; AI and machine learning; Embedded and systems; Frontend, cloud and tooling. Wording follows the README.
 4. **Resume**: text version of the above plus education (RMIT BSE Honours, Oct 2022 - Sep 2026, GPA 3.64/4.0), highlights, and links.
 5. **Contact**: email `thaiduong.works@gmail.com`, GitHub, LinkedIn. No phone.
@@ -61,7 +61,7 @@ Project detail links (existing): Vital Agent `https://github.com/Oucru-Innovatio
 ## Calls made by Claude after the builder check (owner to review)
 
 - **Content source:** the builder adapts wording from the public `TDuong04/TDuong04` README (fetch `https://raw.githubusercontent.com/TDuong04/TDuong04/main/README.md`). Do not invent facts, numbers or descriptions beyond what is there. Project entries are text and tags only, no screenshots in v1.
-- **Welcome window:** on desktop the site opens one `Welcome.exe` window automatically: name, role line ("Embedded Software Engineer @ Bosch Vietnam, AI / Embedded / Software"), the four highlights, and buttons that open Projects, Resume and Contact. On phones the desktop shows first, with Welcome as an icon, so icons are not hidden.
+- **Welcome window:** on desktop the site opens one `Welcome.exe` window automatically: name, role line ("Software Engineer"), the four highlights, and buttons that open Projects, Resume and Contact. On phones the desktop shows first, with Welcome as an icon, so icons are not hidden.
 - **Deep links:** hash routes (e.g. `#/projects/vital-agent`, `#/resume`) open the matching window on load, so a link can be shared. Static `<title>`, description and Open Graph tags in `index.html`. No path routing, so no 404 fallback.
 
 ## Left to the builder

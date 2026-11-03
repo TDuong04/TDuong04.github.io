@@ -85,7 +85,7 @@ src/test/setup.ts
   - `type SkillGroup = { name: string; items: string[] }`
   - `export const profile: { name: string; role: string; email: string; github: string; linkedin: string; highlights: string[]; education: string }`
   - `export const projects: Project[]` (order per spec: vital-agent, plantos, can-safety, fish-detection, scootr, devision, rentmate, travista, guess-your-paddy, clock-watch, pyman)
-  - `export const jobs: Job[]` (bosch, oucru, naver, neo-culture), `export const skillGroups: SkillGroup[]` (4 groups per spec)
+  - `export const jobs: Job[]` (oucru, naver, neo-culture), `export const skillGroups: SkillGroup[]` (4 groups per spec)
 
 - [ ] **Step 1: Write failing tests** in `data.test.ts`:
   - `project ids are unique and in spec order`
@@ -93,7 +93,7 @@ src/test/setup.ts
   - `no phone number anywhere`: `JSON.stringify` of all exports must not match `/\+?\d[\d\s().-]{8,}\d/` (fixtures with years like `2026` do not match since that rule needs ≥10 digits/separators)
   - `forbidden topics absent`: stringified content must not match `/tuturuuu|nova|spark|iceberg|lakehouse|clickhouse|superset|dataflow/i`
   - `profile.email equals thaiduong.works@gmail.com` and `profile.highlights.length === 4`
-  - `jobs[0].org` is Bosch Vietnam, `jobs.length === 4`
+  - `jobs.length === 3`, with OUCRU, NAVER Vietnam, and RMIT Neo Culture Tech Club
 - [ ] **Step 2:** Run `npm test` → FAIL (module missing).
 - [ ] **Step 3:** Fetch the README, write types and data adapted from it. Use the exact numbers there (e.g. OUCRU 11 FastAPI modules, 32.1% → 0%, 81.7% → 97.4%).
 - [ ] **Step 4:** Run `npm test` → PASS. Commit `feat: add typed portfolio content`.

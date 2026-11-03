@@ -71,7 +71,7 @@ test('resume has no tel link and no pdf link', () => {
   const c = body('resume')
   expect(c.querySelector('a[href^="tel:"]')).toBeNull()
   expect(c.querySelector('a[href$=".pdf"]')).toBeNull()
-  expect(c.textContent).toContain('Bosch Vietnam')
+  expect(c.textContent).not.toContain('Bosch Vietnam')
   expect(c.textContent).toContain('3.64')
 })
 

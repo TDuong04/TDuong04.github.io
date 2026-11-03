@@ -2,7 +2,7 @@ import type { Job, Profile, Project, SkillGroup } from './types'
 
 export const profile: Profile = {
   name: 'Huynh Thai Duong',
-  role: 'Embedded Software Engineer @ Bosch Vietnam · AI / Embedded / Software',
+  role: 'Software Engineer',
   email: 'thaiduong.works@gmail.com',
   github: 'https://github.com/TDuong04',
   linkedin:
@@ -133,14 +133,6 @@ export const projects: Project[] = [
 ]
 
 export const jobs: Job[] = [
-  {
-    id: 'bosch',
-    role: 'Embedded Software Engineer',
-    org: 'Bosch Vietnam',
-    period: 'Oct 2026 – now',
-    summary:
-      'Develop C++ MCU base-software components supporting front-radar sensing for automotive ADAS. Work at the embedded hardware–software boundary, building on CAN, microcontroller and hardware-in-the-loop experience.',
-  },
   {
     id: 'oucru',
     role: 'Capstone Collaborator / Full-Stack Developer',

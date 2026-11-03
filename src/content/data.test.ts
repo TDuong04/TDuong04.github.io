@@ -33,9 +33,12 @@ test('profile email and highlights', () => {
   expect(profile.highlights).toHaveLength(4)
 })
 
-test('jobs list starts with Bosch Vietnam and has four entries', () => {
-  expect(jobs[0].org).toBe('Bosch Vietnam')
-  expect(jobs).toHaveLength(4)
+test('jobs list contains the non-Bosch experience entries', () => {
+  expect(jobs.map((job) => job.org)).toEqual([
+    'Oxford University Clinical Research Unit (OUCRU)',
+    'NAVER Vietnam',
+    'RMIT Neo Culture Tech Club',
+  ])
 })
 
 test('there are four skill groups', () => {
